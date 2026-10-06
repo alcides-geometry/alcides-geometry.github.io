@@ -1,5 +1,6 @@
 (() => {
   document.documentElement.classList.add('js');
+  const english = document.documentElement.lang.startsWith('en');
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.getElementById('menu');
   if (toggle && menu) {
@@ -11,7 +12,7 @@
     });
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { close(); toggle.focus(); } });
     menu.addEventListener('click', event => { if (event.target.closest('a')) close(); });
-    window.matchMedia('(min-width: 901px)').addEventListener('change', close);
+    window.matchMedia('(min-width: 1151px)').addEventListener('change', close);
   }
   const search = document.getElementById('search');
   if (search) {
@@ -31,7 +32,7 @@
       }
       for (const group of groups) group.hidden = ![...group.querySelectorAll('.publication')].some(entry => !entry.hidden);
       document.getElementById('no-results').hidden = count !== 0;
-      document.querySelector('.results-count').textContent = `${count} ${count === 1 ? 'registro encontrado' : 'registros encontrados'}`;
+      document.querySelector('.results-count').textContent = `${count} ${english ? (count === 1 ? 'result found' : 'results found') : (count === 1 ? 'registro encontrado' : 'registros encontrados')}`;
     };
     search.addEventListener('input', apply);
     for (const button of filters) button.addEventListener('click', () => {
@@ -43,6 +44,6 @@
   }
   const talk = document.querySelector('[data-talk-date]');
   if (talk && Date.now() > Date.parse(talk.dataset.talkDate) + 2 * 60 * 60 * 1000) {
-    document.getElementById('talk-status').textContent = 'Data passada';
+    document.getElementById('talk-status').textContent = english ? 'Past date' : 'Data passada';
   }
 })();
