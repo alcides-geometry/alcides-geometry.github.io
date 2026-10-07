@@ -23,3 +23,20 @@
 
 /* Photos of academic activities */
 .activity-photo{width:100%;margin:20px 0 0}.activity-photo a{display:block}.activity-photo img{display:block;width:100%;height:auto;border-radius:4px}.activity-photo figcaption{margin-top:8px;font-size:.85rem;line-height:1.5;color:var(--muted)}
+
+
+/* Original figures: de Carvalho, Domingos & Santos, arXiv:2405.04255v2,
+   Figures 3.1–3.3, CC BY 4.0. Decorative display only: scale and opacity. */
+body[data-surface]{isolation:isolate;--surface-primary:url('superficies/ricci-amarela.jpeg');--surface-secondary:url('superficies/ricci-helicoide.png')}
+body[data-surface="circle"]{--surface-primary:url('superficies/ricci-circulo.png');--surface-secondary:url('superficies/ricci-borderline.png')}
+body[data-surface="helicoid"]{--surface-primary:url('superficies/ricci-helicoide.png');--surface-secondary:url('superficies/ricci-anti-salkowski.png')}
+body[data-surface="anti-salkowski"]{--surface-primary:url('superficies/ricci-anti-salkowski.png');--surface-secondary:url('superficies/ricci-circulo.png')}
+body[data-surface="borderline"]{--surface-primary:url('superficies/ricci-borderline.png');--surface-secondary:url('superficies/ricci-amarela.jpeg')}
+body[data-surface]::before,body[data-surface]::after{content:'';position:fixed;z-index:-1;pointer-events:none;background-repeat:no-repeat;background-size:contain;background-position:center;mix-blend-mode:multiply}
+body[data-surface]::before{background-image:var(--surface-primary);width:440px;height:510px;right:-55px;top:155px;opacity:.11}
+body[data-surface]::after{background-image:var(--surface-secondary);width:390px;height:460px;left:-115px;bottom:-110px;opacity:.07}
+.surface-credit{padding-top:22px;font-size:.72rem;line-height:1.7;color:var(--muted)}
+.surface-credit a{color:inherit}
+#recife-geometry-day-2025{scroll-margin-top:2rem}
+@media(max-width:650px){body[data-surface]::before{width:280px;height:330px;right:-80px;top:175px;opacity:.075}body[data-surface]::after{display:none}.surface-credit{font-size:.7rem}}
+@media print{body[data-surface]::before,body[data-surface]::after{display:none}.surface-credit{font-size:8pt}}
