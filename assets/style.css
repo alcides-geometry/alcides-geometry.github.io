@@ -25,18 +25,37 @@
 .activity-photo{width:100%;margin:20px 0 0}.activity-photo a{display:block}.activity-photo img{display:block;width:100%;height:auto;border-radius:4px}.activity-photo figcaption{margin-top:8px;font-size:.85rem;line-height:1.5;color:var(--muted)}
 
 
-/* Original figures: de Carvalho, Domingos & Santos, arXiv:2405.04255v2,
-   Figures 3.1–3.3, CC BY 4.0. Decorative display only: scale and opacity. */
+/* Original scientific figures: de Carvalho, Domingos & Santos,
+   arXiv:2405.04255v2, Figures 3.1–3.3, CC BY 4.0.
+   Seven paper surfaces plus the author's yellow image; CSS display only. */
 body[data-surface]{isolation:isolate;--surface-primary:url('superficies/ricci-amarela.jpeg');--surface-secondary:url('superficies/ricci-helicoide.png')}
-body[data-surface="circle"]{--surface-primary:url('superficies/ricci-circulo.png');--surface-secondary:url('superficies/ricci-borderline.png')}
-body[data-surface="helicoid"]{--surface-primary:url('superficies/ricci-helicoide.png');--surface-secondary:url('superficies/ricci-anti-salkowski.png')}
-body[data-surface="anti-salkowski"]{--surface-primary:url('superficies/ricci-anti-salkowski.png');--surface-secondary:url('superficies/ricci-circulo.png')}
-body[data-surface="borderline"]{--surface-primary:url('superficies/ricci-borderline.png');--surface-secondary:url('superficies/ricci-amarela.jpeg')}
+body[data-surface="yellow"]{--surface-primary:url('superficies/ricci-amarela.jpeg')}
+body[data-surface-secondary="yellow"]{--surface-secondary:url('superficies/ricci-amarela.jpeg')}
+body[data-surface="circle"]{--surface-primary:url('superficies/ricci-circulo.png')}
+body[data-surface-secondary="circle"]{--surface-secondary:url('superficies/ricci-circulo.png')}
+body[data-surface="circle-075"]{--surface-primary:url('superficies/ricci-circulo-075.png')}
+body[data-surface-secondary="circle-075"]{--surface-secondary:url('superficies/ricci-circulo-075.png')}
+body[data-surface="helicoid"]{--surface-primary:url('superficies/ricci-helicoide.png')}
+body[data-surface-secondary="helicoid"]{--surface-secondary:url('superficies/ricci-helicoide.png')}
+body[data-surface="anti-salkowski-01"]{--surface-primary:url('superficies/ricci-anti-salkowski-01.png')}
+body[data-surface-secondary="anti-salkowski-01"]{--surface-secondary:url('superficies/ricci-anti-salkowski-01.png')}
+body[data-surface="anti-salkowski"]{--surface-primary:url('superficies/ricci-anti-salkowski.png')}
+body[data-surface-secondary="anti-salkowski"]{--surface-secondary:url('superficies/ricci-anti-salkowski.png')}
+body[data-surface="anti-salkowski-057"]{--surface-primary:url('superficies/ricci-anti-salkowski-057.png')}
+body[data-surface-secondary="anti-salkowski-057"]{--surface-secondary:url('superficies/ricci-anti-salkowski-057.png')}
+body[data-surface="borderline"]{--surface-primary:url('superficies/ricci-borderline.png')}
+body[data-surface-secondary="borderline"]{--surface-secondary:url('superficies/ricci-borderline.png')}
 body[data-surface]::before,body[data-surface]::after{content:'';position:fixed;z-index:-1;pointer-events:none;background-repeat:no-repeat;background-size:contain;background-position:center;mix-blend-mode:multiply}
-body[data-surface]::before{background-image:var(--surface-primary);width:440px;height:510px;right:-55px;top:155px;opacity:.11}
-body[data-surface]::after{background-image:var(--surface-secondary);width:390px;height:460px;left:-115px;bottom:-110px;opacity:.07}
+body[data-surface]::before{background-image:var(--surface-primary);width:460px;height:510px;right:-10px;top:115px;opacity:.13}
+body[data-surface]::after{background-image:var(--surface-secondary);width:380px;height:440px;left:-65px;bottom:-50px;opacity:.09}
+body[data-surface-arrangement="1"]::before{right:10px;top:130px;width:420px}
+body[data-surface-arrangement="1"]::after{left:-20px;bottom:-70px;width:430px}
+body[data-surface-arrangement="2"]::before{right:-35px;top:105px;width:500px}
+body[data-surface-arrangement="2"]::after{left:0;bottom:-100px;width:360px}
+.hero{position:relative;isolation:isolate}
+.hero::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('superficies/ricci-circulo-transparente.png') no-repeat 58% center/auto 115%;opacity:.18}
 .surface-credit{padding-top:22px;font-size:.72rem;line-height:1.7;color:var(--muted)}
 .surface-credit a{color:inherit}
 #recife-geometry-day-2025{scroll-margin-top:2rem}
-@media(max-width:650px){body[data-surface]::before{width:280px;height:330px;right:-80px;top:175px;opacity:.075}body[data-surface]::after{display:none}.surface-credit{font-size:.7rem}}
-@media print{body[data-surface]::before,body[data-surface]::after{display:none}.surface-credit{font-size:8pt}}
+@media(max-width:650px){body[data-surface]::before{width:300px;height:340px;right:-30px;top:135px;opacity:.11}body[data-surface]::after{display:none}.hero::before{background-position:right 20%;background-size:auto 65%;opacity:.12}.surface-credit{font-size:.7rem}}
+@media print{body[data-surface]::before,body[data-surface]::after,.hero::before{display:none}.surface-credit{font-size:8pt}}
