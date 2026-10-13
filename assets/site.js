@@ -42,8 +42,10 @@
     });
     apply();
   }
-  const talk = document.querySelector('[data-talk-date]');
-  if (talk && Date.now() > Date.parse(talk.dataset.talkDate) + 2 * 60 * 60 * 1000) {
-    document.getElementById('talk-status').textContent = english ? 'Past date' : 'Data passada';
+  for (const talk of document.querySelectorAll('[data-talk-date]')) {
+    const status = talk.querySelector('.talk-status, #talk-status');
+    if (status && Date.now() > Date.parse(talk.dataset.talkDate) + 2 * 60 * 60 * 1000) {
+      status.textContent = english ? 'Past date' : 'Data passada';
+    }
   }
 })();
